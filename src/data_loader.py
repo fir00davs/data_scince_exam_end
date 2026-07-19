@@ -2,6 +2,7 @@
 Data collection and preprocessing module for MovieLens dataset
 """
 import os
+import sys
 import zipfile
 import urllib.request
 import logging
@@ -9,6 +10,9 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 from sklearn.preprocessing import MinMaxScaler
+
+# Fix import path - add parent directory to path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)

@@ -2,10 +2,15 @@
 Main Telegram Bot Application
 """
 import logging
+import os
+import sys
 from telegram import Update
 from telegram.ext import (
     Application, CommandHandler, MessageHandler, filters, ContextTypes
 )
+
+# Fix import path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 logger = logging.getLogger(__name__)
 

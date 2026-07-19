@@ -3,11 +3,16 @@ Movie Recommendation Models - Collaborative and Content-Based Filtering
 """
 import logging
 import pickle
+import os
+import sys
 import numpy as np
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import TruncatedSVD
+
+# Fix import path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 logger = logging.getLogger(__name__)
 

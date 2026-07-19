@@ -2,7 +2,12 @@
 Telegram bot command handlers
 """
 import logging
+import os
+import sys
 from typing import Optional
+
+# Fix import path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 logger = logging.getLogger(__name__)
 
