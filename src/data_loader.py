@@ -71,7 +71,15 @@ class MovieLensDataLoader:
         """Load raw MovieLens files"""
         logger.info("Loading raw data files...")
         
+        # Ensure we're working with Path objects
+        extract_path = Path(extract_path)
         data_path = extract_path / self.dataset_name
+        
+        # If the nested folder doesn't exist but the parent does, use the parent
+        if not (data_path / "u.data").exists() and (extract_path / "u.data").exists():
+            data_path = extract_path
+        
+        logger.info(f"Using data path: {data_path}")
         
         # Load ratings
         ratings_file = data_path / "u.data"
